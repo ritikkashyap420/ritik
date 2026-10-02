@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritik - VC Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brandBlue: '#2563eb', 
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .progress-bar {
+            scale: 0 1;
+            transform-origin: left;
+            animation: scroll-watch linear;
+            animation-timeline: scroll();
+        }
+        @keyframes scroll-watch {
+            to { scale: 1 1; }
+        }
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar { width: 0px; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased transition-colors duration-300 dark:bg-zinc-950 dark:text-gray-300 selection:bg-brandBlue selection:text-white">
 
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar fixed top-0 left-0 h-[2px] bg-brandBlue w-full z-50"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm z-40 border-b border-gray-100 dark:border-zinc-900">
+        <div class="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-semibold text-gray-900 dark:text-white tracking-tight">Ritik</a>
+            <div class="flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-400">
+                <a href="#thesis" class="hover:text-brandBlue transition-colors">Thesis</a>
+                <a href="#companies" class="hover:text-brandBlue transition-colors">Companies</a>
+                <a href="#learnings" class="hover:text-brandBlue transition-colors">Learnings</a>
+                <a href="#library" class="hover:text-brandBlue transition-colors">Library</a>
+                
+                <!-- Theme Toggle Icon -->
+                <button id="theme-toggle" class="ml-2 p-1 text-gray-500 hover:text-brandBlue transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-2xl mx-auto px-6 pt-32 pb-24">
+        
+        <!-- Hero Section -->
+        <section class="mb-20">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 text-xs font-medium text-gray-600 dark:text-gray-400 mb-6">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Investing actively: Pre-Seed & Seed
+            </div>
+            <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-400 mb-6">
+                Principal at <a href="#" class="text-brandBlue hover:underline underline-offset-4">Golden Sparrow</a>. I back outlier founders building crazy ideas in deeptech and AI infrastructure. 
+            </p>
+            <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-400 mb-8">
+                Currently exploring embodied AI, quantum computing primitives, and next-gen silicon.
+            </p>
+            
+            <button id="copy-email" class="text-sm font-medium text-gray-900 dark:text-white hover:text-brandBlue dark:hover:text-brandBlue transition-colors flex items-center gap-2 cursor-pointer border-none bg-transparent p-0">
+                ritik@goldensparrow.vc
+                <span id="copy-status" class="text-xs text-gray-400 opacity-0 transition-opacity"></span>
+            </button>
+        </section>
+
+        <!-- Thesis & Note to Founders -->
+        <section id="thesis" class="mb-20">
+            <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-zinc-500 mb-8">Thesis & Approach</h2>
+            <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p>
+                    I believe the next trillion-dollar companies won't be building SaaS tools for other SaaS tools. They will be moving atoms, solving hard engineering problems, or rebuilding computing infrastructure from the ground up.
+                </p>
+                <p>
+                    When assessing early-stage technical risk, I look for extreme clarity of thought and an obsessive focus on <a href="#" class="text-brandBlue hover:underline underline-offset-4">fundamental physics</a> or mathematical truths, rather than market trends.
+                </p>
+                
+                <!-- Founder Note Accordion -->
+                <div class="mt-8 border border-gray-200 dark:border-zinc-800 rounded-lg overflow-hidden">
+                    <button id="accordion-btn" class="w-full px-5 py-4 flex justify-between items-center bg-gray-50 dark:bg-zinc-900/50 hover:bg-gray-100 dark:hover:bg-zinc-900 transition-colors text-sm font-medium text-gray-900 dark:text-white text-left">
+                        What to include in an initial note
+                        <svg id="accordion-icon" class="w-4 h-4 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="accordion-content" class="hidden px-5 py-4 text-sm text-gray-600 dark:text-gray-400 bg-white dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-800">
+                        <ul class="list-disc pl-4 space-y-2 marker:text-brandBlue">
+                            <li><strong>What is the hard technical problem?</strong> Don't abstract it. Explain the physics/math.</li>
+                            <li><strong>Why now?</strong> What specific breakthrough enables this today?</li>
+                            <li><strong>Why you?</strong> Your unique insight or obsession with this problem.</li>
+                            <li>Link to a demo, paper, or repo. Avoid long pitch decks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Companies -->
+        <section id="companies" class="mb-20">
+            <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-zinc-500 mb-8">Selected Companies</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between items-baseline border-b border-gray-100 dark:border-zinc-900 pb-4">
+                    <div>
+                        <a href="#" class="text-gray-900 dark:text-white font-medium hover:text-brandBlue dark:hover:text-brandBlue transition-colors">QuantumLink</a>
+                        <span class="text-sm text-gray-500 ml-2">— Room-temperature qubits</span>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-zinc-500 uppercase tracking-wider">Pre-Seed</span>
+                </div>
+                
+                <div class="flex justify-between items-baseline border-b border-gray-100 dark:border-zinc-900 pb-4">
+                    <div>
+                        <a href="#" class="text-gray-900 dark:text-white font-medium hover:text-brandBlue dark:hover:text-brandBlue transition-colors">AeroRobotics</a>
+                        <span class="text-sm text-gray-500 ml-2">— Autonomous swarm control</span>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-zinc-500 uppercase tracking-wider">Seed</span>
+                </div>
+
+                <div class="flex justify-between items-baseline border-b border-gray-100 dark:border-zinc-900 pb-4">
+                    <div>
+                        <a href="#" class="text-gray-900 dark:text-white font-medium hover:text-brandBlue dark:hover:text-brandBlue transition-colors">NeuralFabric</a>
+                        <span class="text-sm text-gray-500 ml-2">— Edge AI silicon</span>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-zinc-500 uppercase tracking-wider">Series A</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mistakes & Learnings -->
+        <section id="learnings" class="mb-20">
+            <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-zinc-500 mb-8">Mistakes & Learnings</h2>
+            <div class="space-y-8">
+                <div class="pl-4 border-l-2 border-brandBlue">
+                    <p class="text-gray-900 dark:text-white font-medium mb-1">Over-indexing on pedigree over obsession.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 italic">
+                        Early on, I backed a team solely because of their FAANG background. They built a great product for a non-existent problem. Learning: Look for founders who are irrationally obsessed with the problem space, not just technically capable.
+                    </p>
+                </div>
+                
+                <div class="pl-4 border-l-2 border-brandBlue">
+                    <p class="text-gray-900 dark:text-white font-medium mb-1">Underestimating distribution in deeptech.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 italic">
+                        Assuming a 10x better hardware product sells itself is a fallacy. Learning: Even in deeptech, founders must have a clear thesis on go-to-market and early pilot partnerships from day zero.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Library (Consumption) -->
+        <section id="library" class="mb-20">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-zinc-500">Library</h2>
+                
+                <!-- Filters -->
+                <div class="flex gap-3">
+                    <button class="filter-btn active text-xs font-medium text-brandBlue" data-filter="all">All</button>
+                    <button class="filter-btn text-xs font-medium text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" data-filter="book">Books</button>
+                    <button class="filter-btn text-xs font-medium text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" data-filter="course">Courses</button>
+                    <button class="filter-btn text-xs font-medium text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" data-filter="podcast">Podcasts</button>
+                </div>
+            </div>
+
+            <div class="space-y-4" id="library-list">
+                <!-- Item 1 -->
+                <div class="library-item flex justify-between items-baseline border-b border-gray-100 dark:border-zinc-900 pb-4" data-category="book">
+                    <div>
+                        <a href="#" class="text-brandBlue font-medium hover:underline underline-offset-4">The Beginning of Infinity</a>
+                        <span class="text-sm text-gray-500 ml-2">— David Deutsch</span>
+                        <p class="text-xs text-gray-400 dark:text-zinc-500 mt-1">Fundamental physics and the reach of human knowledge.</p>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-zinc-600">Book</span>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="library-item flex justify-between items-baseline border-b border-gray-100 dark:border-zinc-900 pb-4" data-category="podcast">
+                    <div>
+                        <a href="#" class="text-brandBlue font-medium hover:underline underline-offset-4">Invest Like the Best</a>
+                        <span class="text-sm text-gray-500 ml-2">— Patrick O'Shaughnessy</span>
+                        <p class="text-xs text-gray-400 dark:text-zinc-500 mt-1">Deep dives into business models and capital allocation.</p>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-zinc-600">Podcast</span>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="library-item flex justify-between items-baseline border-b border-gray-100 dark:border-zinc-900 pb-4" data-category="course">
+                    <div>
+                        <a href="#" class="text-brandBlue font-medium hover:underline underline-offset-4">Underactuated Robotics</a>
+                        <span class="text-sm text-gray-500 ml-2">— MIT 6.832</span>
+                        <p class="text-xs text-gray-400 dark:text-zinc-500 mt-1">Nonlinear dynamics and control for modern robotics.</p>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-zinc-600">Course</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="pt-8 border-t border-gray-100 dark:border-zinc-900 flex justify-between items-center text-sm text-gray-400">
+            <p>&copy; 2024 Ritik.</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-brandBlue transition-colors">Twitter</a>
+                <a href="#" class="hover:text-brandBlue transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-brandBlue transition-colors">Substack</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Copy Email to Clipboard
+        const copyBtn = document.getElementById('copy-email');
+        const copyStatus = document.getElementById('copy-status');
+        
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText('ritik@goldensparrow.vc');
+                copyStatus.textContent = '(copied!)';
+                copyStatus.classList.remove('opacity-0');
+                setTimeout(() => {
+                    copyStatus.classList.add('opacity-0');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            } else {
+                localStorage.theme = 'light';
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        });
+
+        // Founder Note Accordion
+        const accordionBtn = document.getElementById('accordion-btn');
+        const accordionContent = document.getElementById('accordion-content');
+        const accordionIcon = document.getElementById('accordion-icon');
+
+        accordionBtn.addEventListener('click', () => {
+            accordionContent.classList.toggle('hidden');
+            if(accordionContent.classList.contains('hidden')) {
+                accordionIcon.style.transform = 'rotate(0deg)';
+            } else {
+                accordionIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+
+        // Library Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const libraryItems = document.querySelectorAll('.library-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('text-brandBlue');
+                    b.classList.add('text-gray-400');
+                });
+                btn.classList.add('text-brandBlue');
+                btn.classList.remove('text-gray-400');
+
+                // Filter items
+                const filterValue = btn.getAttribute('data-filter');
+                libraryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
